@@ -7,7 +7,6 @@ function App() {
   function handleChange(e) {
     const {value} = e.target
     setText(value)
-    console.log(value)
   }
 
   return (
