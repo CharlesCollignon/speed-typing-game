@@ -9,6 +9,12 @@ function App() {
     setText(value)
   }
 
+  function handleCount(text) {
+    const wordArr = text.trim().split(" ")
+    console.log(wordArr.length)
+    return wordArr.length
+  }
+
   return (
     <div className="App">
     <h1>Speed typing game</h1>
@@ -20,7 +26,7 @@ function App() {
       onChange={handleChange}
     />
     <h4>Time remaining :</h4>
-    <button>Start</button>
+    <button onClick={() => handleCount(text)}>Start</button>
     <h1>Word count :</h1>
   </div>
   );
