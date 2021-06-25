@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function App() {
   const STARTING_TIME = 5
@@ -9,6 +9,8 @@ function App() {
   const [game, setGame] = useState(false)
   const [wordCount, setWordCount] = useState(0)
   const [disable, setDisable] = useState(false)
+
+  const textBoxRef = useRef(null)
 
   function handleChange(e) {
     const {value} = e.target
@@ -27,6 +29,8 @@ function App() {
     setTimer(STARTING_TIME)
     setText("")
     setWordCount(0)
+    textBoxRef.current.disabled = false
+    textBoxRef.current.focus()
   }
 
   function endGame() {
@@ -51,6 +55,7 @@ function App() {
     <div className="App">
       <h1>Speed typing game</h1>
       <textarea 
+        ref={textBoxRef}
         name="textarea" 
         id="textarea" 
         value={text}
